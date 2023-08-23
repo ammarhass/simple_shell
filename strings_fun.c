@@ -44,13 +44,13 @@ int _strlen(char *s)
 }
 
 /**
- * _strcmp - function that compares two strings
+ * _cmp - function that compares two strings
  * @s1: pointer to the first string
  * @s2: pointer to the second string
  * Return: int
  */
 
-int _strcmp(const char *s1, const char *s2)
+int _cmp(const char *s1, const char *s2)
 {
 	int i = 0;
 
@@ -62,6 +62,9 @@ int _strcmp(const char *s1, const char *s2)
 		}
 		i++;
 	}
+	if (s1[i] != s2[i])
+		return  (1);
+
 	return (0);
 }
 

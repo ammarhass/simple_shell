@@ -16,6 +16,27 @@ void signal_handling(int check)
 }
 
 /**
+ * check_empty - function to checks if buf is empty
+ * @str: pointer to buf
+ *
+ * Return: 0 if empty 1 is not
+ */
+
+int check_empty(char *str)
+{
+	int k;
+
+	for (k = 0; str[k] != '\0' && str[k] != '\n'; k++)
+	{
+		if (str[k] != ' ' && str[k] != '\t')
+		{
+			return (1);
+		}
+	}
+	return (0);
+}
+
+/**
 * main - main function (entry point)
 *
 * @arc: number of arguments on the command line
@@ -41,11 +62,14 @@ int main(__attribute__((unused))int arc, char **argv)
 			write(STDIN_FILENO, "\n", 1);
 			exit(0);
 		}
-		else if (_strcmp(buf, "exit") == 0)
+		if (check_empty(buf) == 0)
+			continue;
+		else if (_cmp(buf, "exit\n") == 0)
 		{
+			free(buf);
 			exit(0);
 		}
-		else if (_strcmp(buf, "env") == 0)
+		else if (_cmp(buf, "env\n") == 0)
 		{
 			print_env();
 			continue;

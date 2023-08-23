@@ -12,7 +12,7 @@
 
 extern char **environ;
 
-int _strcmp(const char *s1, const char *s2);
+int _cmp(const char *s1, const char *s2);
 char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 char *_strcat(char *dest, char *src);

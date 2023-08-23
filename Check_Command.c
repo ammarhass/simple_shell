@@ -15,7 +15,7 @@ char *bring_env(const char *check_env)
 	while (environ[k])
 	{
 		str = strtok(environ[k], "=");
-		if (_strcmp(check_env, str) == 0)
+		if (_cmp(check_env, str) == 0)
 			return (strtok(NULL, "\n"));
 
 		k++;

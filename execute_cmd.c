@@ -66,6 +66,8 @@ void exec_cmd(char **arr, char **argv, int count)
 			write(1, arr[0], _strlen(arr[0]));
 			write(1, ": not found\n", _strlen(": not found\n"));
 		}
+		if (Command != NULL)
+			free(Command);
 		exit(0);
 	}
 	else
